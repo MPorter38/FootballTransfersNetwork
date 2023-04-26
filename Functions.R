@@ -1,8 +1,11 @@
+#Script with utility functions in 
 
 library(igraph)
 library(ggplot2)
 library(graphics)
 library(blockmodels)
+
+set.seed(12)
 
 #Change a weighted adj matrix to an unweighted adj matrix 
 unweighted<- function(adj.matrix,n){

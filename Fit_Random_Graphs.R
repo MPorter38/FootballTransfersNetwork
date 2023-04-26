@@ -1,7 +1,6 @@
 # This scripts produces fitted Random Graphs for the first 19 seasons 
 # Then analyses the 'small world' properties of these graphs 
 
-set.seed(12)
 # Run Functions.R file for functions
 source("Functions.R")
 
@@ -51,13 +50,13 @@ for (j in 1:19){
 }
 
 # Plot Clustering Coefficient 
-plot(cl.yg,ylim=c(0,0.6),ylab = "Clustering Coefficient", xlab = "Season", main="The Clustering of each Graph compared to the Random Graphs")
+plot(cl.yg,ylim=c(0,max(cl.rg.upper,cl.yg)),ylab = "Clustering Coefficient", xlab = "Season", main="The Clustering of each Graph compared to the Random Graphs")
 points(cl.rg.lower, col=2 ,pch=20)
 points(cl.rg.upper, col=2 ,pch=20)
 segments(1:19,cl.rg.lower,x1=1:19,y1=cl.rg.upper,col=2)
 
 #Plot Diameters
-plot(diam.yg, ylab = "Diameter",xlab = "Season",main="The Diameter of each Graph compared to the Random Graphs")
+plot(diam.yg, ylim=c(0,max(diam.rg.upper,diam.yg)) , ylab = "Diameter",xlab = "Season",main="The Diameter of each Graph compared to the Random Graphs")
 points(diam.rg.lower, col=2 ,pch=20)
 points(diam.rg.upper, col=2 ,pch=20)
 segments(1:19,diam.rg.lower,x1=1:19,y1=diam.rg.upper,col=2)
