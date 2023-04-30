@@ -41,3 +41,25 @@ for (i in 1:21){
   E(yearly.graphs[[i]])$width<- 0.06*(E(yearly.graphs[[i]])$weight)
 }
 rm(year, year.edj)
+
+# List of graph object for each season without weight or direction
+yearly.graphs.simple<- list()
+for (i in 1:21){
+  year<- Data[which(Data[,4]==levels(factor(Data[,4]))[i]),][1:2]
+  year.edj<- graph_from_edgelist(as.matrix(year))
+  year.adj<- as.matrix(get.adjacency(year.edj))
+  year.adj<- unweighted(year.adj, dim(year.adj)[1])
+  year.graph<- graph_from_adjacency_matrix(year.adj, mode=c("undirected"),diag=FALSE)
+  yearly.graphs.simple[[i]]<- year.graph
+}
+
+# List of graph object for each season without direction
+yearly.graphs.undirected <- list()
+for (i in 1:21){
+  year<- Data[which(Data[,4]==levels(factor(Data[,4]))[i]),][1:2]
+  year.edj<- graph_from_edgelist(as.matrix(year))
+  year.adj<- as.matrix(get.adjacency(year.edj))
+  year.graph<- graph_from_adjacency_matrix(year.adj,diag=FALSE, weighted=TRUE)
+  yearly.graphs.undirected[[i]]<- year.graph
+}
+
