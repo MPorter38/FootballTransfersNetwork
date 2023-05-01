@@ -2,8 +2,6 @@
 # and formats the data into graph objects for each season. The edges are the 
 # (combined) transfers and the vertices are the leagues 
 
-library(igraph)
-
 # Read in the data and setup variable of season names
 Data<- read.csv(file = 'RawData0021.csv')
 season<-c("00-01","01-02","02-03","03-04","04-05","05-06", "06-07", "07-08", 
