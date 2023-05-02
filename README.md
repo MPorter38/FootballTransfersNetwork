@@ -1,12 +1,12 @@
 # An Analysis of Networks of Football Transfers
-In this repository, we analyse a group of networks based on men's association football transfers. The collection consists of twenty one graphs, one for every season starting with the 2000-01 season and ending with the 2020-21 season. 
+In this repository, we analyse a group of networks based on men's association football transfers. This readme we describe the data and the graphs that we construct, the models and analysis we perform, and the potential purposes of this repository. 
 
-In our graph for each network, the vertices represent leagues, specifically leagues that are the highest level of professional men's football in their country. The edges then represent transfers that have taken place between clubs from these leagues. In particular, transfers that rank in the top 200 most expensive for the given season. 
+The collection consists of twenty one graphs, one for every season starting with the 2000-01 season and ending with the 2020-21 season. In our graph for each network, the vertices represent leagues, specifically leagues that are the highest level of professional men's football in their country. The edges then represent transfers that have taken place between clubs from these leagues. In particular, transfers that rank in the top 200 most expensive for the given season. 
 
 These edges are weighted by the value of fee for the transfer that they represent. In order to avoid creating multi graphs in cases where there could be multiple edges, we have combine these into a single edge weighted by the sum of all the constituent transfer fees. Also, we have not allowed loops in the networks, which would be transfers that start and end in the same league.   
 
-In these scripts, we first do some exploratory analysis, before fitting a Erdos-Renyi Random Graph to our data and then a Watts-Strogatz Graph. 
+In these scripts, we first do some exploratory analysis, before fitting a Erdos-Renyi Random Graph to our data and then a Watts-Strogatz Graph. The models we fit are Stochastic Block Models. We fit one of these to 2018-19 season and use it to test if the Portugese top division has the siginificantly higher betweeness centrality for a vertex of such a position in the graph. We also fit Stochastic Blocks Models to each season's data and then analyse consistently has a higher degree than expected. 
 
-- Stochastic Block Models, Portgual betweeness, & Premier League Degree
-- Linear Models for prediction
-- Purpose of this 
+Finally, we use a linear regression model approach to predict what the edge weights and consquently the graph would have looked like in 2020-21 based on previous trends. That is to say what it would have looked liked without the influence of the COVID19 pandemic. We refine this method in the Regression Model script and then apply the method in the Predicted 20 21 script. 
+
+In general, these findings should allow clubs to be better informed when making decisions about transfers and mean that governing bodies better understand the transfer markets that they have to regulate. The conclusions that we have drawn from this case study are certainly not the only ones that can be made using networks of this specification. The same methodologies could be used to investigate a wide range of hypothesis and even the specification of the network itself could be adapted to suit other needs. This links to the fact that the key results of this case study was to show the networks are a good tool to use to analysis the football transfers. 
